@@ -17,7 +17,7 @@ function App() {
       subject,
       text
     }
-
+    
     axios.post('http://localhost:5000/sendgrid', email)
     .then(res => console.log(res))
     .catch(err => console.error(err));
@@ -26,7 +26,10 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={() => sendEmail()} >
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        sendEmail();
+      }} >
         <input 
           type="text" 
           onChange={e => setRecipient(e.target.value)} 

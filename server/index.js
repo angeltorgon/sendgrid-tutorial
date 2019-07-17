@@ -7,9 +7,15 @@ const app = express();
 sgMail.setApiKey('api key');
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send("Welcome to sendgrid tutorial backend!")
+});
+
+app.post('/sendgrid', (req, res) => {
+    console.log(req.body);
+
 });
 
 app.listen(5000, (req, res) => {
