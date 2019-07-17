@@ -19,7 +19,7 @@ function App() {
     }
     
     axios.post('http://localhost:5000/sendgrid', email)
-    .then(res => console.log(res))
+    .then(res => {console.log(res)})
     .catch(err => console.error(err));
 
   }
