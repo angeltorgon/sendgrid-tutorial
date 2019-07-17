@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import axios from "axios";
+
 function App() {
 
   const [ recipient, setRecipient ] = useState('');
@@ -9,7 +11,17 @@ function App() {
   const [ text, setText ] = useState('');
 
   const sendEmail = () => {
-    
+    const email = {
+      recipient,
+      sender,
+      subject,
+      text
+    }
+
+    axios.post('http://localhost:5000/sendgrid', email)
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+
   }
 
   return (
