@@ -8,13 +8,38 @@ function App() {
   const [ subject, setSubject ] = useState('');
   const [ text, setText ] = useState('');
 
+  const sendEmail = () => {
+    
+  }
+
   return (
     <div className="App">
-      <form>
-        <input type="text" onChange={setRecipient(e.target.value)} name="recipient" value={recipient} />
-        <input type="text" onChange={setSender(e.target.value)} name="sender" value={sender} />
-        <input type="text" onChange={setSubject(e.target.value)} name="subject" value={subject} />
-        <input type="text" onChange={setText(e.target.value)} name="text" value={text} />
+      <form onSubmit={() => sendEmail()} >
+        <input 
+          type="text" 
+          onChange={e => setRecipient(e.target.value)} 
+          name="recipient" 
+          placeholder="recipient" 
+          value={recipient} />
+        <input 
+          type="text" 
+          onChange={ e => setSender(e.target.value)} 
+          name="sender" 
+          placeholder="sender" 
+          value={sender} />
+        <input 
+          type="text" 
+          onChange={ e => setSubject(e.target.value)} 
+          name="subject" 
+          placeholder="subject" 
+          value={subject} />
+        <input 
+          type="text" 
+          onChange={ e => setText(e.target.value)} 
+          name="text" 
+          placeholder="text" 
+          value={text} />
+          <button>Send email</button>
       </form>
     </div>
   );
